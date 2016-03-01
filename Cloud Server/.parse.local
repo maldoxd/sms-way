@@ -1,0 +1,10 @@
+{
+  "applications": {
+    "SMSWay": {
+      "applicationId": "SLadcUnqmKEEi2t2eIba9VW0TJgfcTsLgAkKfJ80"
+    },
+    "_default": {
+      "link": "SMSWay"
+    }
+  }
+}

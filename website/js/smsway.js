@@ -307,20 +307,9 @@ $(function() {
     logIn: function(e) {
       var self = this;
       var username = this.$("#login-username").val();
-      alert(username);   
-      var User = Parse.Object.extend("User");
-      var query = new Parse.Query(User);
-      query.equalTo("username",username);
-      query.find({
-        success: function(results) {
-          alert("Successfully retrieved " + results.length + " scores.");
-          // Do something with the returned Parse.Object values
-
-           
-        },
-        error: function(error) {
-          alert("Error: " + error.code + " " + error.message);
-        }
+       
+      Parse.Cloud.run('LogUser', { username: username }).then(function(ratings) {
+          alert(ratings);
       });
          
 
