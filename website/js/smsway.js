@@ -338,12 +338,13 @@ $(function() {
     events: {
       "submit form.login-pin-form": "logIn"
     },
-
+    template: _.template($('#login-pin-template').html()),
+  
     el: ".content",
      
     initialize: function(options) {
       _.bindAll(this, "logIn");
-      this.userName = options.username;
+     this.options = options;
       this.render();
     },
 
@@ -378,7 +379,8 @@ $(function() {
  
 
     render: function() {
-      this.$el.html(_.template($("#login-pin-template").html({qwe:"wqe"})));
+      alert(this.options.userName);
+      this.$el.html(this.template({userName: this.options.userName}));
 
       this.delegateEvents();
     }
