@@ -307,10 +307,19 @@ $(function() {
     logIn: function(e) {
       var self = this;
       var username = this.$("#login-username").val();
-       
-      Parse.Cloud.run('LogUser', { username: username }).then(function(ratings) {
-          alert(ratings);
-      });
+        Parse.Cloud.run('LogUser', { username: username },{
+        success: function(results) {
+
+                 new PinView({userName: "maldonelo"});
+                self.undelegateEvents();
+                delete self;
+            },
+            error: function(error) {
+                alert(error);
+            }
+
+       });
+      
          
 
       this.$(".login-form button").attr("disabled", "disabled");
@@ -331,31 +340,37 @@ $(function() {
     },
 
     el: ".content",
-    
-    initialize: function() {
+     
+    initialize: function(options) {
       _.bindAll(this, "logIn");
+      this.userName = options.username;
       this.render();
     },
 
     logIn: function(e) {
-      var self = this;
-      var username = this.$("#login-username").val();
+      var self = this; 
       var password = this.$("#login-password").val();
+      var username = this.$("#login-username").val();
+       Parse.Cloud.run('LogPinUser', { pin: password, username: username },{
+        success: function(results) {
+                 
+               Parse.User.become(results).then(function (user) {
+                  new ManageSmssView();
+                    self.undelegateEvents();
+                delete self; 
+              }, function (error) {
+                // The token could not be validated.
+              });
+            },
+            error: function(error) {
+                self.$(".login-pin-form .error").html("Invalid username or password. Please try again.").show();
+                self.$(".login-pin-form button").removeAttr("disabled");
+            }
+
+       }) 
       
-      Parse.User.logIn(username, password, {
-        success: function(user) {
-          new ManageSmssView();
-          self.undelegateEvents();
-          delete self;
-        },
 
-        error: function(user, error) {
-          self.$(".login-form .error").html("Invalid username or password. Please try again.").show();
-          self.$(".login-form button").removeAttr("disabled");
-        }
-      });
-
-      this.$(".login-form button").attr("disabled", "disabled");
+      this.$(".login-pin-form button").attr("disabled", "disabled");
 
       return false;
     },
@@ -363,7 +378,8 @@ $(function() {
  
 
     render: function() {
-      this.$el.html(_.template($("#login-template").html()));
+      this.$el.html(_.template($("#login-pin-template").html({qwe:"wqe"})));
+
       this.delegateEvents();
     }
   });
