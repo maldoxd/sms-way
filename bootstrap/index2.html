@@ -1,0 +1,315 @@
+<html class="pixel-ratio-1 watch-active-state"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>JHILEX HTML Mobile Template</title>
+	<!-- favicon
+	============================================ -->		
+	<link rel="shortcut icon" type="image/x-icon" href="img/fav-jhilex.png">	
+	<!-- font Raleway link -->  
+	<link href="https://fonts.googleapis.com/css?family=Raleway:400,800,700,600,500,100,900,300" rel="stylesheet" type="text/css">
+	<!-- font open sanse link -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,600italic,700,700italic,800,300" rel="stylesheet" type="text/css">
+	
+	<!-- all css here -->
+    <!-- Path to Framework7 Library CSS-->
+    <link rel="stylesheet" href="css/framework7.ios.min.css">
+    <link rel="stylesheet" href="css/framework7.ios.colors.min.css">	        
+	<!-- font-awesome.min CSS -->      
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<!-- swipebox CSS -->
+	<link rel="stylesheet" href="css/swipebox.css">
+	<link rel="stylesheet" href="css/kitchen-sink.css">	
+	<!-- style CSS -->          
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/responsive.css">
+  <style type="text/css"></style></head>
+  <body>
+    <!-- Status bar overlay for fullscreen mode-->
+    <div class="statusbar-overlay"></div>
+    <!-- Panels overlay-->
+    <div class="panel-overlay"></div>
+	<div class="login-screen">
+    <div class="view">
+      <div class="page">
+        <div class="page-content login-screen-content registerbody">
+			<div class="register-content">
+				<a href="#" class="close-login-screen floatright"><i class="fa fa-times"></i></a>
+				<h3><img src="img/logo2.png" alt=""></h3>
+				<form action="#">
+					<div class="inputbox">
+						<span>Username:</span><br>
+						<input type="text" name="name" id="name" placeholder="Username">
+					</div>
+					<div class="inputbox">
+						<span>Password:</span><br>
+						<input type="password" name="password" placeholder="***********">
+					</div>
+					<div class="inputbox">
+						<a data-popup=".popup-forgetpass" class="open-popup" href="#">Forget Password?</a>
+					</div>
+					<div class="inputbox">
+						<button class="button button-big">Login</button>
+					</div>						
+				</form>	
+				<p>Don’t have an account?  <a data-popup=".popup-register" class="open-popup" href="#">Sign Up</a></p>
+			</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- popup menu  start-->
+<div class="popup popup-menu registerbodypop">
+	<div class="registerbodypop">
+		
+		<div class="mainmenu">
+			<div class="menuheader">
+				<div class="logo">Menu</div>
+				<div class="contacticone">
+					<a href="#" class="close-popup"><i class="fa fa-times"></i></a>
+				</div>
+			</div>
+			<div class="menu">
+				<ul>
+					<li><a class="close-popup" href="#">Home</a></li>
+					<li><a class="close-popup" href="galleries.html">Galleries</a></li>
+					<li><a class="close-popup" href="protfolios.html">Portfolios</a></li>
+					<li><a href="#">Pages</a>
+						<a class="clickmenu floatright" href="#">
+							<span class="fa fa-plus"></span>
+						</a>
+						<ul class="show-menu">
+							<li><a class="close-popup open-login-screen" href="#">Login</a></li>
+							<li><a data-popright=".popup-register" class="open-popup" href="#">Register</a></li>
+							<li><a data-popup=".popup-forgetpass" class="open-popup" href="#">Forget Password</a></li>
+							<li><a class="close-popup" href="blog-details.html">Blog Details</a></li>
+							<li><a class="close-popup" href="error.html">404 page</a></li>
+						</ul>
+					</li>
+					<li><a class="close-popup" href="blog.html">Blog</a></li>
+					<li><a class="close-popup" href="contact.html">Contact</a></li>
+				</ul>
+			</div>
+		</div>
+	 </div>
+</div>
+  <!-- popup menu end-->
+  <!-- forget password  start-->
+ <div class="popup popup-forgetpass">
+	<div class="registerbody">
+		<a href="#" class="close-popup closebutton"><i class="fa fa-times"></i></a>
+		<div class="register-content">
+			<h3><img src="img/logo2.png" alt=""></h3>
+			<form action="#">
+				<div class="inputbox">
+					<span>Email:</span><br>
+					<input type="email" name="password" placeholder="email@gmail.com">
+				</div>
+				<div class="inputbox">
+					<button class="button button-big">Remember me</button>
+				</div>						
+			</form>	
+			<p>Don’t have an account?<a data-popup=".popup-register" class="open-popup" href="#"> Sign Up</a></p>
+		</div>
+	 </div>
+</div>
+  <!-- forget password  end-->
+  <!-- resister popup start-->
+<div class="popup popup-register">
+	<div class="registerbody">
+			<a href="#" class="close-popup closebutton"><i class="fa fa-times"></i></a>
+	     <div class="register-content">
+			<h3><img src="img/logo2.png" alt=""></h3>
+				<form action="#">
+				<div class="inputbox">
+					<span>Full Name:</span><br>
+					<input type="text" name="fulname" placeholder="Full Name">
+				</div>
+				<div class="inputbox">
+					<span>Username:</span><br>
+					<input type="text" name="username2" placeholder="Username">
+				</div>
+				<div class="inputbox">
+					<span>Email:</span><br>
+					<input type="email" name="email" placeholder="email@gmail.com">
+				</div>
+				<div class="inputbox">
+					<span>Password:</span><br>
+					<input type="password" name="password2" placeholder="***********">
+				</div>
+				<div class="inputbox">
+					<button class="button button-big">Sign Up</button>
+				</div>					
+			</form>
+		</div>
+	 </div>
+</div>
+  <!-- resister popup start-->
+    <!-- Views-->
+    <div class="views">
+      <!-- Your main view, should have "view-main" class-->
+		<div class="view view-main" data-page="our-service">
+			<!-- Top Navbar-->
+			<div class="navbar">
+				<div class="navbar-inner">
+					<div class="left">
+							<a href="menu.html" class="link icon-only"><img src="img/icone/menu.png" alt=""></a>
+					</div>
+					<!-- We have home navbar without left link-->
+					<div class="center sliding" style="left: 0px;"><img src="img/logo.png" alt=""></div>
+					<div class="right">
+				  <!-- left link contains only icon - additional "icon-only" class--><a href="#" class="open-login-screen link icon-only"><i class="fa fa-user"></i></a>
+					</div>
+					
+				</div>
+			</div>
+            <!-- Pages, because we need fixed-through navbar and toolbar, it has additional appropriate classes-->
+			<div class="pages navbar-through toolbar-through">
+			  <!-- Page, data-page contains page name-->
+				
+			<div data-page="our-service" class="page page-on-left">
+    <!-- Scrollable page content-->
+    <div class="page-content">
+      <div class="content-block">
+        <div class="content-block-inner">
+        	<!-- Single-content start -->
+			<div class="protfoliodatils">
+				<div class="protfolioimge">
+					<div class="prot-img">
+						<img src="img/portfolio/2.png" alt="">
+					</div>
+					<div class="prot-img-text">
+						<ul>
+							<li>
+								<h4><img src="img/portfolio/client.png" alt="">Client</h4>
+								<p><a href="#">Themeforest</a></p>
+							</li>
+							<li>
+								<h4><img src="img/portfolio/calender.png" alt="">Date</h4>
+								<p>25 June, 2015</p>
+							</li>
+							<li>
+								<h4><img src="img/portfolio/user.png" alt="">By:</h4>
+								<p><a href="#">M S Newaz</a></p>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="protfolio-content">
+					<h4>Portfolio Tittle One</h4>
+					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown print er took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially un changed. remaining essentially unchanged.</p>
+				</div>
+			</div>
+			<!-- Single-content start -->
+        </div>
+      </div>
+    </div>
+  </div><div data-page="our-service" class="page page-on-center">
+    <!-- Scrollable page content-->
+    <div class="page-content">
+      <div class="content-block">
+        <div class="content-block-inner">
+			<div class="row">
+				<div class="col-50">
+					<a href="index.html" class="">
+						<div class="offer-box">
+							<div class="cat-icone"><img src="img/icone/home.png" alt=""></div>
+							<div class="offer-text">
+								<h3>Home</h3>										
+							</div>
+						</div>
+					</a>
+				</div>
+				<div class="col-50">
+					<a href="protfolios.html">
+						<div class="offer-box">
+							<div class="cat-icone"><img src="img/icone/portfolio.png" alt=""></div>
+							<div class="offer-text">
+								<h3>Portfoli2o</h3>										
+							</div>
+						</div>
+					</a>
+				</div>
+				<div class="col-50">
+					<a href="blog.html">
+						<div class="offer-box">
+							<div class="cat-icone"><img src="img/icone/blog.png" alt=""></div>
+							<div class="offer-text">
+								<h3>Blog </h3>										
+							</div>
+						</div>
+					</a>
+				</div>
+				<div class="col-50">
+					<a href="galleries.html">
+						<div class="offer-box">
+							<div class="cat-icone"><img src="img/icone/gallery.png" alt=""></div>
+							<div class="offer-text">
+								<h3>Gallery</h3>										
+							</div>
+						</div>
+					</a>
+				</div>
+				<div class="col-50">
+					<a class="close-popup open-login-screen" href="#">
+						<div class="offer-box">
+							<div class="cat-icone"><img src="img/icone/login.png" alt=""></div>
+							<div class="offer-text">
+								<h3>Login</h3>										
+							</div>
+						</div>
+					</a>
+				</div>
+				<div class="col-50">
+					<a data-popright=".popup-register" class="open-popup" href="#">
+						<div class="offer-box sign-div">								
+							<div class="cat-icone"><img src="img/icone/sign-up.png" alt=""></div>
+							<div class="offer-text">
+								<h3>Sign up </h3>										
+							</div>
+						</div>
+					</a>
+				</div>
+				<div class="col-50">
+					<a href="contact.html">
+						<div class="offer-box">								
+							<div class="cat-icone"><img src="img/icone/contact.png" alt=""></div>
+							<div class="offer-text">
+								<h3>Contact</h3>										
+							</div>
+						</div>
+					</a>
+				</div>
+				<div class="col-50">
+					<a class="external" href="tel:+88-01627-600206">
+						<div class="offer-box">								
+							<div class="cat-icone"><img src="img/icone/call-us.png" alt=""></div>
+							<div class="offer-text">
+								<h3>Call Us</h3>										
+							</div>
+						</div>
+					</a>
+				</div>
+			</div>
+		<!-- Menu end -->
+      </div>
+    </div>
+  </div>
+</div></div>
+        </div>
+    </div>
+	
+	<!-- Js -->
+	<!-- jquery-1.11.3.min js -->         
+	<script src="js/jquery-1.11.3.min.js"></script>
+	<!--jquery.swipebox js -->
+	<script src="js/jquery.swipebox.js"></script>
+	    <!--jquery.mixitup js -->  
+	<script src="js/jquery.mixitup.min.js"></script>
+	<!-- Path to Framework7 Library JS --> 
+    <script type="text/javascript" src="js/framework7.min.js"></script>
+	<!-- Path to your app js --> 
+    <script type="text/javascript" src="js/my-app.js"></script>
+  
+</body></html>

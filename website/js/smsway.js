@@ -154,9 +154,11 @@ $(function() {
       "click #clear-completed": "clearCompleted",
       "click #toggle-all": "toggleAllComplete",
       "click .log-out": "logOut",
-      "click ul#filters a": "selectFilter"
+      "click ul#filters a": "selectFilter",
+      "submit form.sms-send-form": "SendSms"
+    
     },
-
+    
     el: ".content",
 
     // At initialization we bind to the relevant events on the `Todos`
@@ -165,7 +167,7 @@ $(function() {
     initialize: function() {
       var self = this;
 
-      _.bindAll(this, 'addOne', 'addAll', 'addSome', 'render', 'toggleAllComplete', 'logOut', 'createOnEnter');
+      _.bindAll(this, 'addOne', 'addAll', 'addSome', 'render', 'toggleAllComplete', 'logOut', 'createOnEnter', 'SendSms');
 
       // Main sms management template
       this.$el.html(_.template($("#manage-sms-template").html()));
@@ -188,8 +190,44 @@ $(function() {
       this.smss.fetch();
 
       state.on("change", this.filter, this);
+         var container = document.getElementById('example');
+this.hot = new Handsontable(container, {
+    columns: [
+      
+      {
+        data: 'year',
+        type: 'numeric',
+        allowInvalid: false, 
+      }
+      ],
+  rowHeaders: true, 
+  minSpareRows: 1,
+  startRows: 1,
+});
     },
 
+    //Send Sms and ooptions to parse
+    SendSms: function(e) {
+      var self = this;  
+      var username = this.$("#login-username").val();
+      var message = this.$("#new-sms").val();
+       
+        var $container = $('#example');
+      var htContents = JSON.stringify($container.handsontable('getData'));
+      var dataSms = (this.hot.getData());
+       Parse.Cloud.run('SendSMS', { data: dataSms , message = message},{
+        success: function(results) {
+
+                 new PinView({userName: username});
+                self.undelegateEvents();
+                delete self;
+            },
+            error: function(error) {
+                alert(error);
+            }
+
+       }); 
+    },    
     // Logs out the user and shows the login view
     logOut: function(e) {
       Parse.User.logOut();
@@ -310,7 +348,7 @@ $(function() {
         Parse.Cloud.run('LogUser', { username: username },{
         success: function(results) {
 
-                 new PinView({userName: "maldonelo"});
+                 new PinView({userName: username});
                 self.undelegateEvents();
                 delete self;
             },

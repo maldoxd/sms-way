@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <meta name="apple-mobile-web-app-status-bar-style" content="black">
+      <title>Storied Books</title>
+      <!-- Path to Framework7 Library CSS-->
+      <link rel="stylesheet" href="css/framework7.ios.min.css">
+      <!-- Path to your custom app styles--> 
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
+      <link rel="stylesheet" href="css/style.css"> 
+   </head>
+   <body>
+      <!-- Status bar overlay for fullscreen mode-->
+      <div class="statusbar-overlay"></div>
+      <!-- Panels overlay-->
+      <div class="panel-overlay"></div>
+      <!-- Left panel with reveal effect-->
+      <div class="panel panel-left panel-reveal">
+         <div class="content-block">
+            <p>Left panel content goes here</p>
+         </div>
+      </div>
+      <!-- Right panel with cover effect-->
+      <div class="panel panel-right panel-cover">
+         <div class="content-block">
+            <p>Right panel content goes here</p>
+         </div>
+      </div>
+      <!-- Views-->
+      <div class="views">
+         <!-- Your main view, should have "view-main" class-->
+         <div class="view view-main">
+            <!-- Top Navbar-->
+            <div class="navbar">
+               <!-- Navbar inner for Index page-->
+               <div data-page="index" class="navbar-inner">
+                  <!-- We have home navbar without left link-->
+                  <div class="center sliding">Discover</div>
+                  <div class="right">
+                     <!-- Right link contains only icon - additional "icon-only" class--><a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a>
+                  </div>
+               </div>
+               <!-- Navbar inner for book page-->
+               <div data-page="book" class="navbar-inner cached">
+                  <div class="left sliding"><a href="#" class="back link"> <i class="icon icon-back"></i><span>Back</span></a></div>
+                  <div class="center sliding"></div>
+               </div>
+               <!-- Navbar inner for Services page-->
+               <div data-page="services" class="navbar-inner cached">
+                  <div class="left sliding"><a href="#" class="back link"> <i class="icon icon-back"></i><span>Back</span></a></div>
+                  <div class="center sliding">Fiction</div>
+               </div>
+               <!-- Navbar inner for Form page-->
+               <div data-page="form" class="navbar-inner cached">
+                  <div class="left sliding"><a href="#" class="back link"> <i class="icon icon-back"></i><span>Back</span></a></div>
+                  <div class="center sliding">Form</div>
+               </div>
+            </div>
+            <!-- Pages, because we need fixed-through navbar and toolbar, it has additional appropriate classes-->
+            <div class="pages navbar-through toolbar-through">
+               <!-- Index Page-->
+               <div data-page="index" class="page">
+                  <!-- Scrollable page content-->
+                  <div class="page-content">
+                  
+                     <div class="content-block-title"><input type="text" placeholder="Search">  </input></div>
+                     <div class="content-block">
+                        <div class="content-block-inner">
+                           <div class="row">
+                              <div class="col-50">
+                                 <a class="close-popup open-login-screen" href="#">
+                                    <div class="offer-box">
+                                       <div class="cat-icone">
+                                       <a href="#services" class="item-link">
+                                 <img src="images/fiction.png" alt="">
+                              </a></div>
+                                    </div>
+                                 </a>
+                              </div>
+                              <div class="col-50">
+                                 <a data-popright=".popup-register" class="open-popup" href="#">
+                                    <div class="offer-box sign-div">
+                                       <div class="cat-icone"><img src="images/poetry.png" alt=""></div>
+                                    </div>
+                                 </a>
+                              </div>
+                              <div class="col-50">
+                                 <a href="contact.html">
+                                    <div class="offer-box">
+                                       <div class="cat-icone"><img src="images/romance.png" alt=""></div>
+                                    </div>
+                                 </a>
+                              </div>
+                              <div class="col-50">
+                                 <a >
+                                    <div class="offer-box">
+                                       <div class="cat-icone"><img src="images/science.png" alt=""></div>
+                                    </div>
+                                 </a>
+                              </div>
+                              <div class="col-50">
+                                 <a href="contact.html">
+                                    <div class="offer-box">
+                                       <div class="cat-icone"><img src="images/comedy.png" alt=""></div>
+                                    </div>
+                                 </a>
+                              </div>
+                              <div class="col-50">
+                                 <a  href="">
+                                    <div class="offer-box">
+                                       <div class="cat-icone"><img src="images/mistery.png" alt=""></div>
+                                    </div>
+                                 </a>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="content-block-title">What book simple navigation?</div>
+                     <div class="list-block">
+                        <ul>
+                           <li>
+                              
+                           </li>
+                           <li>
+                              <a href="#services" class="item-link">
+                                 <div class="item-content">
+                                    <div class="item-inner">
+                                       <div class="item-title">Services</div>
+                                    </div>
+                                 </div>
+                              </a>
+                           </li>
+                           <li>
+                              <a href="#form" class="item-link">
+                                 <div class="item-content">
+                                    <div class="item-inner">
+                                       <div class="item-title">Form</div>
+                                    </div>
+                                 </div>
+                              </a>
+                           </li>
+                        </ul>
+                     </div>
+                     
+                  </div>
+               </div>
+               <!-- book Page-->
+               <div data-page="book" class="page cached">
+                  <div class="page-content">
+                  
+                    <div class="content-block-title">
+                      <h1 id="titleBook"> Blink </h1>
+                      <h4>Malcom Madley</h4> 
+                    </div>
+                     <div class="content-block">
+                         
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vel commodo massa, eu adipiscing mi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Phasellus ultricies dictum neque, non varius tortor fermentum at. Curabitur auctor cursus imperdiet. Nam molestie nisi nec est lacinia volutpat in a purus. Maecenas consectetur condimentum viverra. Donec ultricies nec sem vel condimentum. Phasellus eu tincidunt enim, sit amet convallis orci. Vestibulum quis fringilla dolor.    </p>
+                         
+                     </div> </div>
+               </div>
+               <!-- Page One -->
+               <div data-page="pageone" class="page cached">
+                  <div class="page-content">
+                  
+                    <div class="content-block-title">
+                      <h1> Chapter One </h1>
+                      <h4>Blink</h4> 
+                    </div>
+                     <div class="content-block">
+                         
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vel commodo massa, eu adipiscing mi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Phasellus ultricies dictum neque, non varius tortor fermentum at. Curabitur auctor cursus imperdiet. Nam molestie nisi nec est lacinia volutpat in a purus. Maecenas consectetur condimentum viverra. Donec ultricies nec sem vel condimentum. Phasellus eu tincidunt enim, sit amet convallis orci. Vestibulum quis fringilla dolor.    </p>
+                         
+                     </div> </div>
+               </div>
+               <!-- Services Page-->
+               <div data-page="services" class="page cached">
+               
+                  <div class="page-content">
+                   <div class="content-block-title"> <div class="swiper-container">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+        <!-- Slides -->
+        <div class="swiper-slide">Slide 1</div>
+        <div class="swiper-slide">Slide 2</div>
+        <div class="swiper-slide">Slide 3</div>
+     
+    </div>
+    <!-- If we need pagination -->
+    <div class="swiper-pagination"></div>
+    
+    <!-- If we need navigation buttons -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+    
+    <!-- If we need scrollbar -->
+    <div class="swiper-scrollbar"></div>
+</div>  </div>
+                     <div class="content-block">
+                 
+                         <div class="toolbar tabbar tabbar-labels">
+        
+        <div class="toolbar-inner"><a href="#book"  >  <span class="tabbar-label">New releases</span></a><a href="#view-2" > <span class="tabbar-label">  Featured Stories</span></a><a href="#view-3" >  <span class="tabbar-label">  Featured Authors</span></a><a href="#view-4"  > <span class="tabbar-label">  Popular</span></a>
+        </div>
+      </div>
+      <ul>
+        <li class="ft-movielist-item" ng-repeat="movie in movies">
+          <a href="#book"   class="item-link">
+            <div class="item-content">
+              <div class="item-media">
+                <img class="ft-movielist-item-img" src="img/book.png">
+              </div>
+             
+            </div>
+          </a>
+        </li>
+        <li class="ft-movielist-item" ng-repeat="movie in movies">
+          <a href="#book"   class="item-link">
+            <div class="item-content">
+              <div class="item-media">
+                <img class="ft-movielist-item-img" src="img/book.png">
+              </div>
+             
+            </div>
+          </a>
+        </li>
+        <li class="ft-movielist-item" ng-repeat="movie in movies">
+          <a href="#book"   class="item-link">
+            <div class="item-content">
+              <div class="item-media">
+                <img class="ft-movielist-item-img" src="img/book.png">
+              </div>
+             
+            </div>
+          </a>
+        </li>
+        <li class="ft-movielist-item" ng-repeat="movie in movies">
+          <a href="#book"   class="item-link">
+            <div class="item-content">
+              <div class="item-media">
+                <img class="ft-movielist-item-img" src="img/book.png">
+              </div>
+             
+            </div>
+          </a>
+        </li>
+        <li class="ft-movielist-item" ng-repeat="movie in movies">
+          <a href="#book"   class="item-link">
+            <div class="item-content">
+              <div class="item-media">
+                <img class="ft-movielist-item-img" src="img/book.png">
+              </div>
+             
+            </div>
+          </a>
+        </li>
+        <li class="ft-movielist-item" ng-repeat="movie in movies">
+          <a href="#book"   class="item-link">
+            <div class="item-content">
+              <div class="item-media">
+                <img class="ft-movielist-item-img" src="img/book.png">
+              </div>
+             
+            </div>
+          </a>
+        </li>
+        <li class="ft-movielist-item" ng-repeat="movie in movies">
+          <a href="#book"   class="item-link">
+            <div class="item-content">
+              <div class="item-media">
+                <img class="ft-movielist-item-img" src="img/book.png">
+              </div>
+             
+            </div>
+          </a>
+        </li>
+        <li class="ft-movielist-item" ng-repeat="movie in movies">
+          <a href="#book"   class="item-link">
+            <div class="item-content">
+              <div class="item-media">
+                <img class="ft-movielist-item-img" src="img/book.png">
+              </div>
+             
+            </div>
+          </a>
+        </li>
+        <li class="ft-movielist-item" ng-repeat="movie in movies">
+          <a href="#book"   class="item-link">
+            <div class="item-content">
+              <div class="item-media">
+                <img class="ft-movielist-item-img" src="img/book.png">
+              </div>
+             
+            </div>
+          </a>
+        </li>
+      </ul>
+                     </div>
+                  </div>
+               </div> 
+            </div>
+              <!-- Bottom Toolbar--> 
+      
+         </div>
+      </div>
+
+  <script src="js/jquery-1.11.3.min.js"></script>
+      <!-- Path to Framework7 Library JS-->
+      <script type="text/javascript" src="js/framework7.min.js"></script>
+      <!-- Path to your app js-->
+      <script type="text/javascript" src="js/my-app.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.min.js"></script>
+ 
+   </body>
+</html>

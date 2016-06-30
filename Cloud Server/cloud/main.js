@@ -28,6 +28,31 @@ Parse.Cloud.define("LogUser", function(request, response) {
   });
 
 });
+Parse.Cloud.define("SendSMS", function(request, response) {
+	var RequestSms = Parse.Object.extend("RequestSms");
+	
+	query.equalTo("username", request.params.username);
+	query.find({
+		success: function(results) {
+			if (results.length>0)
+			{
+				var requestSms = new RequestSms();
+	requestSms.set("message", request.params.message);
+	requestSms.set("data", request.params.data)
+ 
+	     		requestSms.set("user", results[0])
+	     		requestSms.save();
+			     response.success( true);
+		 	}
+		 	else
+		 		response.error("false");
+		},
+    error: function() {
+      response.error("false");
+    }
+  });
+
+});
 Parse.Cloud.define("LogPinUser", function(request, response) {
 	 Parse.Cloud.useMasterKey();
 	 var queryUser = new Parse.Query("User");
