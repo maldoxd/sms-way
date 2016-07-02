@@ -5,50 +5,100 @@ Parse.Cloud.define("hello", function(request, response) {
   response.success("Hello world!");
 });
 Parse.Cloud.define("LogUser", function(request, response) {
-	var UserPin = Parse.Object.extend("UserPin");
-
+	
 	var query = new Parse.Query("User");
+	var queryUserPin = new Parse.Query("UserPin");
+	
 	query.equalTo("username", request.params.username);
-	query.find({
+	query.first({
 		success: function(results) {
-			if (results.length>0)
-			{
-				var createUserPin = new UserPin();
-	     		createUserPin.set("pin", 122);
-	     		createUserPin.set("user", results[0])
-	     		createUserPin.save();
-			     response.success( true);
-		 	}
-		 	else
-		 		response.error("false");
+			
+				queryUserPin.equalTo("user", results);
+				
+				queryUserPin.descending("createdAt");
+				queryUserPin.first({
+				  success: function(object) {
+					  if (object!=null){
+						object.set("active", false);
+						object.save();
+					  }
+					CreateNewPin(request, response, results)
+				  },
+				  error: function(error) { 
+					CreateNewPin(request, response, results)
+				  }
+					});
+					
+									
 		},
     error: function() {
-      response.error("false");
+      response.error("no usuaroi");
     }
   });
 
 });
+function CreateNewPin(request,response,results)
+{
+	var UserPin = Parse.Object.extend("UserPin");
+
+	var createUserPin = new UserPin();
+									createUserPin.set("pin", Math.floor(10000 + Math.random() * 90000));
+									createUserPin.set("user", results);
+									createUserPin.set("active", true);
+									createUserPin.save();
+									SendNotification(results, createUserPin.get("pin"), response);
+									
+}
 Parse.Cloud.define("SendSMS", function(request, response) {
-	var RequestSms = Parse.Object.extend("RequestSms");
 	
-	query.equalTo("username", request.params.username);
-	query.find({
-		success: function(results) {
-			if (results.length>0)
-			{
-				var requestSms = new RequestSms();
-	requestSms.set("message", request.params.message);
-	requestSms.set("data", request.params.data)
- 
-	     		requestSms.set("user", results[0])
+	 Parse.Cloud.useMasterKey();
+	var RequestSms = Parse.Object.extend("RequestSms");
+	  			var requestSms = new RequestSms();
+				requestSms.set("message", request.params.message);
+				requestSms.set("data", request.params.data);	
+				requestSms.set("status", false);
+	     		requestSms.set("user", request.user);
 	     		requestSms.save();
-			     response.success( true);
-		 	}
-		 	else
-		 		response.error("false");
+				 
+				var pushQuery = new Parse.Query(Parse.Installation);
+				pushQuery.equalTo("user", request.user);
+				
+				Parse.Push.send({
+  where: pushQuery,
+  data: {
+    message: JSON.stringify(requestSms)
+  }
+}, {
+  success: function() {
+     response.success(true);
+  },
+  error: function(error) {
+    response.error(error);
+  }
+});
+				 
+		 	
+ 
+
+});
+Parse.Cloud.define("LogSignUser", function(request, response) {
+	 Parse.Cloud.useMasterKey();
+	 var queryUser = new Parse.Query("User");
+	 queryUser.equalTo("username",request.params.username);
+	 
+	 queryUser.find({
+		success: function(results) {
+			 if (results.length>0)
+			 {
+		     	response.success( results[0].getSessionToken());
+		     }
+		     else
+		     {
+		     	response.success("no encontrado");
+		     }
 		},
-    error: function() {
-      response.error("false");
+    error: function(error) {
+      response.error(error);
     }
   });
 
@@ -77,3 +127,26 @@ Parse.Cloud.define("LogPinUser", function(request, response) {
   });
 
 });
+function SendNotification(results, pin, response) {
+  
+				var pushQuery = new Parse.Query(Parse.Installation);
+				pushQuery.equalTo("user", results);
+				
+				Parse.Push.send({
+  where: pushQuery,
+  data: {
+    alert: pin
+  }
+}, {
+  success: function() {  
+   response.success( true);
+  },
+  error: function(error) {  
+   response.error( "error");
+  }
+});
+				 
+		 	
+ 
+}
+ 
